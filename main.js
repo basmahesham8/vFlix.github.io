@@ -27,7 +27,6 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: true,
-    url: 'http://localhost:3000',
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -429,10 +428,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineInjecto
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilmsServiceService", function() { return FilmsServiceService; });
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "qCKp");
-/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/environments/environment */ "AytR");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 
 
 
@@ -446,12 +443,12 @@ class FilmsServiceService {
         return this.sub;
     }
     getFilmsbyChannelID(id) {
-        return this.http.get(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url}/films?channel=${id}`);
+        return this.http.get(`http://localhost:3000/films?channel=${id}`);
         // return this.filmsOfChannel ? this.filmsOfChannel : null;
     }
     addComment(id, comment) {
         this.http
-            .patch(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url}/films/${id}`, { notes: comment })
+            .patch(`http://localhost:3000/films/${id}`, { notes: comment })
             .subscribe((res) => {
             console.log('from film service patch ' + res);
         }, (err) => {
@@ -459,8 +456,8 @@ class FilmsServiceService {
         });
     }
 }
-FilmsServiceService.ɵfac = function FilmsServiceService_Factory(t) { return new (t || FilmsServiceService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])); };
-FilmsServiceService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: FilmsServiceService, factory: FilmsServiceService.ɵfac, providedIn: 'root' });
+FilmsServiceService.ɵfac = function FilmsServiceService_Factory(t) { return new (t || FilmsServiceService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
+FilmsServiceService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: FilmsServiceService, factory: FilmsServiceService.ɵfac, providedIn: 'root' });
 
 
 /***/ }),
